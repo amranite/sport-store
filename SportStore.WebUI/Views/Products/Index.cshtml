@@ -1,0 +1,29 @@
+@using System.Globalization
+@model IEnumerable<SportStore.WebUI.ViewModels.ProductCatalogItemViewModel>
+
+@{
+    ViewData["Title"] = "Catalog";
+    var euroCulture = CultureInfo.GetCultureInfo("nl-BE");
+}
+
+<div class="mb-4">
+    <h1 class="h2 mb-0">Catalog</h1>
+</div>
+
+<div class="row g-4">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4">
+                <div class="card h-100 border-1 rounded product-card">
+                    <div class="product-card-image-wrapper">
+                    <img src="~/uploads/products/@product.ImageUrl" class="card-img-top product-card-image" alt="@product.Name"/>
+                </div>
+                <div class="card-body text-center p-4">
+                    <h2 class="card-title h5 fw-bold">@product.Name</h2>
+                    <p class="card-text mb-0">@product.Price.ToString("C", euroCulture)</p>
+                    <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-outline-dark mt-3">Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

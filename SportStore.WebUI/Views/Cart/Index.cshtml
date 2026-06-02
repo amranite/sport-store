@@ -1,0 +1,70 @@
+@using System.Globalization
+@model SportStore.WebUI.ViewModels.CartIndexViewModel
+
+@{
+    ViewData["Title"] = "Shopping Cart";
+    var euroCulture = CultureInfo.GetCultureInfo("nl-BE");
+}
+
+<div class="mb-4">
+    <h1 class="h2 mb-3">Shopping Cart</h1>
+    @if (Model.Lines.Count > 0)
+    {
+        <form asp-action="Clear" method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-outline-danger btn-sm">Clear Cart</button>
+        </form>
+    }
+</div>
+
+@if (Model.Lines.Count == 0)
+{
+    <p>Your shopping cart is empty.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table align-middle cart-table">
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var line in Model.Lines)
+            {
+                <tr>
+                    <td>@line.ProductName</td>
+                    <td>@line.Price.ToString("C", euroCulture)</td>
+                    <td>@line.Quantity</td>
+                    <td>@line.Subtotal.ToString("C", euroCulture)</td>
+                    <td class="text-end">
+                        <form asp-action="Remove" method="post" class="m-0">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="productId" value="@line.ProductId"/>
+                            <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>Total</th>
+                <th></th>
+                <th></th>
+                <th>@Model.Total.ToString("C", euroCulture)</th>
+                <th></th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="mt-3">
+        <a asp-controller="Order" asp-action="Create" class="btn btn-outline-success btn-sm">Order</a>
+    </div>
+}

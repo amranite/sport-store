@@ -1,0 +1,42 @@
+@using System.Globalization
+@model SportStore.WebUI.ViewModels.ProductDetailsViewModel
+
+@{
+    ViewData["Title"] = "Product Details";
+    var euroCulture = CultureInfo.GetCultureInfo("nl-BE");
+}
+
+<div class="row g-5 align-items-start">
+    <div class="col-md-6">
+        <div class="product-detail-image-wrapper">
+            <img src="~/uploads/products/@Model.ImageUrl" class="img-fluid" alt="@Model.Name"/>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <p class="small text-muted mb-2">
+            <span class="fw-semibold text-dark">Category:</span> @Model.CategoryName
+        </p>
+        <h1 class="fw-bold mb-3">@Model.Name</h1>
+        <p class="fs-5 mb-4">@Model.Price.ToString("C", euroCulture)</p>
+        <p class="my-4">@Model.Description</p>
+
+        <form asp-controller="Cart" asp-action="Add" method="post" class="d-flex align-items-center gap-2 mb-3">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="productId" value="@Model.Id"/>
+            <input type="number" name="quantity" class="form-control quantity-input" min="1" value="1"/>
+            <button type="submit" class="btn btn-outline-dark">Add to cart</button>
+        </form>
+
+        @if (User.HasClaim("CanManageCatalog", "true"))
+        {
+            <div class="d-flex gap-2">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary">Edit</a>
+                <form asp-action="Delete" asp-route-id="@Model.Id" method="post" class="m-0">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                </form>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportStore.Domain", "SportStore.Domain\SportStore.Domain.csproj", "{FB307103-7AA9-4B70-BA62-8E08537A9BD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportStore.Application", "SportStore.Application\SportStore.Application.csproj", "{0EDB269A-7B3A-4519-B188-597E2D7166B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportStore.Infrastructure", "SportStore.Infrastructure\SportStore.Infrastructure.csproj", "{3F59D70E-5E38-47D0-8E48-527FD78E65BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportStore.WebUI", "SportStore.WebUI\SportStore.WebUI.csproj", "{69E94E44-27C1-4E26-8D19-58D182319C0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB307103-7AA9-4B70-BA62-8E08537A9BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB307103-7AA9-4B70-BA62-8E08537A9BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB307103-7AA9-4B70-BA62-8E08537A9BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB307103-7AA9-4B70-BA62-8E08537A9BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EDB269A-7B3A-4519-B188-597E2D7166B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EDB269A-7B3A-4519-B188-597E2D7166B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EDB269A-7B3A-4519-B188-597E2D7166B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EDB269A-7B3A-4519-B188-597E2D7166B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F59D70E-5E38-47D0-8E48-527FD78E65BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F59D70E-5E38-47D0-8E48-527FD78E65BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F59D70E-5E38-47D0-8E48-527FD78E65BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F59D70E-5E38-47D0-8E48-527FD78E65BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69E94E44-27C1-4E26-8D19-58D182319C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69E94E44-27C1-4E26-8D19-58D182319C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69E94E44-27C1-4E26-8D19-58D182319C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69E94E44-27C1-4E26-8D19-58D182319C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
